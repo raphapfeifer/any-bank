@@ -1,0 +1,38 @@
+.banner{
+    border-radius:0.5.rem;
+    background: var(--gradiente-azul);
+    padding: 3rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.welcome{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.date{
+    font-size: 0.8125rem;
+}
+
+.title {
+    font-size: 1.9375rem;
+    font-weight: 600;
+    line-height: 125%;
+}
+
+@media screen and (max-width: 71rem){
+
+    .banner{
+        padding: 3rem 1rem;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 4rem;
+    }
+
+    .welcome,
+    .count{
+        width: 70%;
+    }
+}
