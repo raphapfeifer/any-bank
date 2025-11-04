@@ -1,11 +1,16 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-new-form-transction',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './new-form-transction.component.html',
   styleUrl: './new-form-transction.component.css'
 })
 export class NewFormTransctionComponent {
+    transanctionValue = '';
 
+    onSubmit(){
+      console.log(this.transanctionValue);
+    }
 }

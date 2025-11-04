@@ -1,5 +1,5 @@
 <main class="form-wrapper">
-    <form class="form">
+    <form (ngSubmit)="onSubmit()" class="form">
         <h2 class="title">New Transaction</h2>
         <div class="fields">
             <label class="group-field">
@@ -15,7 +15,7 @@
             <label class="group-field">
                 Value
                 <div class="input-wrapper">
-                    <input type="number" min="0.01" step="0.01" name="value" 
+                    <input [(ngModel)]="transanctionValue" type="number" min="0.01" step="0.01"placeholder="00,00" name="value" 
                     class="field value-input-transaction" required>
                 </div>
             </label>
