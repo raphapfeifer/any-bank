@@ -8,9 +8,11 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './new-form-transction.component.css'
 })
 export class NewFormTransctionComponent {
+    transactionType = '';
     transanctionValue = '';
 
     onSubmit(){
       console.log(this.transanctionValue);
+      console.log(this.transactionType);
     }
 }
