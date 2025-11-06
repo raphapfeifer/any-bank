@@ -14,5 +14,8 @@ export class NewFormTransctionComponent {
     onSubmit(){
       console.log(this.transanctionValue);
       console.log(this.transactionType);
-    }
+
+      this.transactionType = '';
+      this.transanctionValue = '';
+    } 
 }
