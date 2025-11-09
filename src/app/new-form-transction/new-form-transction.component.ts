@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -11,9 +11,10 @@ export class NewFormTransctionComponent {
     transactionType = '';
     transanctionValue = '';
 
+    createdTransaction = output();
+
     onSubmit(){
-      console.log(this.transanctionValue);
-      console.log(this.transactionType);
+      this.createdTransaction.emit();
 
       this.transactionType = '';
       this.transanctionValue = '';

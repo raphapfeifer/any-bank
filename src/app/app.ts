@@ -9,5 +9,8 @@ import { NewFormTransctionComponent } from "./new-form-transction/new-form-trans
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('anybank');
+
+  trasactionProcess(){
+    console.log("New Trasaction created")
+  }
 }
