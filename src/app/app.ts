@@ -1,6 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { BannerComponent } from "./banner/banner.component";
 import { NewFormTransctionComponent } from "./new-form-transction/new-form-transction.component";
+import { Transaction } from './model/transaction';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,8 @@ import { NewFormTransctionComponent } from "./new-form-transction/new-form-trans
 })
 export class App {
 
-  trasactionProcess(){
-    console.log("New Trasaction created")
+  trasactionProcess(transaction: Transaction){
+    console.log("New Trasaction created");
+    console.log(transaction);
   }
 }

@@ -12,7 +12,7 @@ export class NewFormTransctionComponent {
     transactionType = '';
     transanctionValue = '';
 
-    createdTransaction = output();
+    createdTransaction = output<Transaction>();
 
     onSubmit(){
       const transaction = new Transaction(
@@ -20,7 +20,7 @@ export class NewFormTransctionComponent {
         Number(this.transanctionValue)
       )
 
-      this.createdTransaction.emit();
+      this.createdTransaction.emit(transaction);
 
       this.transactionType = '';
       this.transanctionValue = '';
