@@ -2,5 +2,6 @@
     <div class="banner-form-wrapper">
         <app-banner></app-banner>
         <app-new-form-transction (createdTransaction)="trasactionProcess($event)"></app-new-form-transction>
+        {{ balance() }}
     </div>
 </div>

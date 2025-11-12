@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { BannerComponent } from "./banner/banner.component";
 import { NewFormTransctionComponent } from "./new-form-transction/new-form-transction.component";
 import { Transaction } from './model/transaction';
@@ -11,8 +11,15 @@ import { Transaction } from './model/transaction';
 })
 export class App {
 
+  transactions = signal<Transaction[]>([]);
+
+  balance = computed(() => {
+    return this.transactions().reduce((acc, currentTransaction) => {
+        return acc + currentTransaction.value
+    }, 0)
+  });
+
   trasactionProcess(transaction: Transaction){
-    console.log("New Trasaction created");
-    console.log(transaction);
+    this.transactions.update((currentList) => [transaction, ...currentList])
   }
 }
