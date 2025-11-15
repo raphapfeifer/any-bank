@@ -23,7 +23,7 @@ export class App {
             return acc - currentTransaction.value;
 
           default:
-            throw new Error('Transaction type not exists');
+            throw new Error('Transaction type not exist');
         }
         
     }, 0)
