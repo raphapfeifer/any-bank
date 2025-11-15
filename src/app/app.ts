@@ -1,7 +1,7 @@
 import { Component, computed, signal } from '@angular/core';
 import { BannerComponent } from "./banner/banner.component";
 import { NewFormTransctionComponent } from "./new-form-transction/new-form-transction.component";
-import { Transaction } from './model/transaction';
+import { Transaction, TransactionType } from './model/transaction';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +15,17 @@ export class App {
 
   balance = computed(() => {
     return this.transactions().reduce((acc, currentTransaction) => {
-        return acc + currentTransaction.value
+        switch(currentTransaction.type){
+          case TransactionType.DEPOSIT:
+            return acc + currentTransaction.value;
+
+          case TransactionType.WITHDRAWAL:  
+            return acc - currentTransaction.value;
+
+          default:
+            throw new Error('Transaction type not exists');
+        }
+        
     }, 0)
   });
 
