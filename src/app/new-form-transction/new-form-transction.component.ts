@@ -1,10 +1,11 @@
 import { Component, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Transaction, TransactionType } from '../model/transaction';
+import { KeyValuePipe } from '@angular/common';
 
 @Component({
   selector: 'app-new-form-transction',
-  imports: [FormsModule],
+  imports: [FormsModule, KeyValuePipe],
   templateUrl: './new-form-transction.component.html',
   styleUrl: './new-form-transction.component.css'
 })
@@ -13,6 +14,8 @@ export class NewFormTransctionComponent {
     transanctionValue = '';
 
     createdTransaction = output<Transaction>();
+
+    transactionTypeEnum = TransactionType;
 
     onSubmit(){
       const transaction = new Transaction(

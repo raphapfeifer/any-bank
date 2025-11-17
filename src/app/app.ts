@@ -15,17 +15,18 @@ export class App {
 
   balance = computed(() => {
     return this.transactions().reduce((acc, currentTransaction) => {
+      
         switch(currentTransaction.type){
           case TransactionType.DEPOSIT:
             return acc + currentTransaction.value;
 
-          case TransactionType.WITHDRAWAL:  
+          case TransactionType.WITHDRAWAL:
             return acc - currentTransaction.value;
-
+             
+            
           default:
             throw new Error('Transaction type not exist');
         }
-        
     }, 0)
   });
 
