@@ -2,10 +2,11 @@ import { Component, computed, signal } from '@angular/core';
 import { BannerComponent } from "./banner/banner.component";
 import { NewFormTransctionComponent } from "./new-form-transction/new-form-transction.component";
 import { Transaction, TransactionType } from './model/transaction';
+import { ExtractComponent } from "./extract/extract.component";
 
 @Component({
   selector: 'app-root',
-  imports: [BannerComponent, NewFormTransctionComponent],
+  imports: [BannerComponent, NewFormTransctionComponent, ExtractComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -31,6 +32,9 @@ export class App {
   });
 
   trasactionProcess(transaction: Transaction){
+    if(transaction.type === TransactionType.WITHDRAWAL && transaction.value > this.balance()){
+      return alert('Insufficient funds!');
+    }
     this.transactions.update((currentList) => [transaction, ...currentList])
   }
 }
