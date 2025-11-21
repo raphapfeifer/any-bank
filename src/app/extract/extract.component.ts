@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { TransactionComponent } from './transaction/transaction.component';
+import { Transaction } from '../model/transaction';
 
 
 @Component({
@@ -10,4 +11,5 @@ import { TransactionComponent } from './transaction/transaction.component';
 })
 export class ExtractComponent {
 
+  transactions = input.required<Transaction[]>()
 }

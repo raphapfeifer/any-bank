@@ -4,5 +4,5 @@
         <app-new-form-transction (createdTransaction)="trasactionProcess($event)"></app-new-form-transction>
     </div>
 
-    <app-extract class="extract"/>
+    <app-extract [transactions]="transactions()" class="extract"/>
 </div>
