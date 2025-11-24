@@ -1,10 +1,14 @@
 <aside class="extract">
     <h2 class="title">Extract</h2>
     <ul class="tansactions">
-        @for (transaction of transactions(); track $index){
+        @for (transaction of transactions(); track transaction.id){
         <li>
             <app-transaction [transaction]="transaction"/>
         </li>
-        }       
+        } @empty {
+            <li aria-hidden="true">
+                No transactions yet
+            </li>
+        }      
     </ul>
 </aside>
