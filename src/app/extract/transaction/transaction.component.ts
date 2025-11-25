@@ -1,5 +1,5 @@
-import { Component, input } from '@angular/core';
-import { Transaction } from '../../model/transaction';
+import { Component, input, computed } from '@angular/core';
+import { Transaction, TransactionType } from '../../model/transaction';
 import { CurrencyPipe, DatePipe } from '@angular/common';
 
 @Component({
@@ -10,4 +10,10 @@ import { CurrencyPipe, DatePipe } from '@angular/common';
 })
 export class TransactionComponent {
   transaction = input.required<Transaction>();
+  value = computed(() => {
+    if(this.transaction().type === TransactionType.WITHDRAWAL){
+      return -this.transaction().value;
+    }
+    return this.transaction().value;
+  });
 }
